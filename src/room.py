@@ -10,4 +10,4 @@ class Room:
         self.s_to = None
         self.w_to = None
     def __str__(self):
-        return f"room: {self.name}, description: {self.description}"
+        return f" --> {self.name}, room description: {self.description}"
