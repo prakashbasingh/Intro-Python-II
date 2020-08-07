@@ -7,7 +7,10 @@ class Player:
         self.items = items
 
     def __str__(self):
-        return f"{self.name} is in {self.current_room.name}"
+        inventory = ""
+        for item in self.items:
+            inventory = inventory + " " + item + "|"
+        return f"{self.name} is in {self.current_room.name}, and items are: {inventory}"
     
     def check_items(self):
         return self.items
@@ -23,3 +26,4 @@ class Player:
                 dropping_item = item
                 del self.items[index]
         return dropping_item
+    

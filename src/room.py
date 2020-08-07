@@ -30,6 +30,6 @@ class Room:
                 del self.items[index]
         return taken_room_item
     
-    def add_items(self, item):
-        self.items.append(item)
-        # return print(f"You placed {item.name} in {self.name}")
+    def add_items(self, received):
+        self.items.append(received)
+        return print(f"You placed {received.name} in {self.name}")

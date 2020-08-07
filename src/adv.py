@@ -55,10 +55,12 @@ while True:
     
     room_items = ""
     for i in current_room.check_items():
-        room_items = i.name + ", " + i.description
+        room_items = i.name
+        item_description = i.description
     if room_items == "":
         room_items = "nothing"
-    print (f"-- search and find {room_items} -- \n ")
+    print (f"-- Search and Find {room_items} --")
+    print(f"-- {item_description} -- \n")
     # * Prints the current description (the textwrap module might be useful here).
     # * Waits for user input and decides what to do.
     # If the user enters a cardinal direction, attempt to move to the room there.
@@ -103,15 +105,20 @@ while True:
     elif command[0] == "take":
         if(command[0]):
             new_player.take_items(current_room.loose_items(command[0]))
-            print(f"you took {i.name} from {current_room.name}")
+            print(f"you took {room_items} from {current_room.name}\n")
         else:
             print("Oops!!! plz write 'take ......' <-- item name here")
     elif command[0] == "drop":
         if(command[0]):
             current_room.add_items(new_player.drop_items(command[0]))
-            print(f"you dropped the {i.name} into the {current_room.name}")
+            print(f"you dropped the {room_items} into the {current_room.name}")
         else:
             print("Oops!!! plz write 'take ......' <-- item name here")
+    elif command[0] == "check-items":
+        inventory = "bag: "
+        for item in new_player.check_items():
+            inventory = inventory + room_items + ", "
+        print(inventory)
 
 # elif command[0] == "n":
 # # check if the player can move to the north 
